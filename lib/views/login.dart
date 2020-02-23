@@ -30,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
         backgroundColor: Colors.black,
         textColor: Colors.white,
         fontSize: 16.0);
-    if (api == "Success") {
+    if (api == "Berhasil Login") {
       Navigator.of(context).pushNamed(HomePage.tag);
     }
     setState(() {
@@ -79,12 +79,9 @@ class _LoginPageState extends State<LoginPage> {
         shadowColor: Colors.lightBlueAccent.shade100,
         elevation: 5.0,
         child: MaterialButton(
-          // minWidth: 200.0,
-          // height: 42.0,
           onPressed: () {
             postLogin();
           },
-          // color: Colors.lightBlueAccent,
           child: Text('Log In', style: TextStyle(color: Colors.white)),
         ),
       ),

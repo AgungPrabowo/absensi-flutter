@@ -1,14 +1,18 @@
 import 'package:absensi/views/homePage.dart';
 import 'package:absensi/views/login.dart';
 import 'package:flutter/material.dart';
+import 'package:absensi/views/map.dart';
+import 'package:absensi/utils/sharedPref.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  final SharedPref _sp = SharedPref();
 
   final routes = <String, WidgetBuilder>{
     LoginPage.tag: (context) => LoginPage(),
     HomePage.tag: (context) => HomePage(),
+    Map.tag: (context) => Map(),
   };
 
   @override
@@ -20,7 +24,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.lightBlue,
         fontFamily: 'Nunito',
       ),
-      home: LoginPage(),
+      home: _sp.isLogin() == true ? HomePage() : LoginPage(),
       routes: routes,
     );
   }
